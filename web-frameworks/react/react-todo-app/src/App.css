@@ -85,6 +85,11 @@ input:focus {
   float: right;
 }
 
+.btn-add[data-disabled="true"] {
+  background: gray;
+  border-color: gray;
+}
+
 ul.todo-list {
   padding: 0;
   margin-bottom: 30px;
@@ -93,10 +98,84 @@ ul.todo-list {
 ul.todo-list li {
   position: relative;
   list-style-type: none;
-  display: block;
+  display: flex;
   margin: 10px 0;
   background: #e0e8f5;
   border-radius: 3px;
   padding: 12px;
   overflow: hidden;
+}
+
+ul.todo-list li .delete {
+  position: absolute;
+  width: 46px;
+  height: 110%;
+  right: 0;
+  cursor: pointer;
+  background-color: #f56468;
+  color: #fff;
+  transition: all ease-in 0.25s;
+  transform: translateY(-30%);
+}
+
+ul.todo-list li .delete:after {
+  position: absolute;
+  content: "";
+  top: 30%;
+  right: 30%;
+  width: 16px;
+  height: 16px;
+  background-image: url("https://nourabusoud.github.io/vue-todo-list/images/trash.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: all ease-in 0.25s;
+}
+
+.todo-checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 2px;
+  border: 1px solid #cfdcec;
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-text {
+  padding: 0 1em;
+}
+
+.control-buttons {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
+
+.btn-secondary {
+  display: inline-block;
+  border: 0;
+  padding: 0;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.strikeoff {
+  text-decoration: line-through;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  bottom: 20px;
+  left: 0;
+}
+
+footer a {
+  color: #fff;
 }
