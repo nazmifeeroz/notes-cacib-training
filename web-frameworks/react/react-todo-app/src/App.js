@@ -68,7 +68,12 @@ function App() {
         </ul>
         {showCompleted && (
           <div>
-            Completed Tasks: %
+            Completed Tasks:{" "}
+            {(
+              (completed.length / (todos.length + completed.length)) *
+              100
+            ).toFixed()}
+            %
             <ul className="todo-list">
               {completed.map((complete, i) => (
                 <li key={`${complete}-${i}`}>
