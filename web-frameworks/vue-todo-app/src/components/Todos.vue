@@ -1,0 +1,137 @@
+<template>
+  <main>
+    <section class="todo-wrapper">
+      <h2 class="todo-title">My Todo List</h2>
+      <input v-model="inputValue" type="text" @keyup.enter="addTodo" />
+      <div class="btn btn-add" v-on:click="addTodo">+</div>
+      <ul class="todo-list">
+        <li v-for="todo in todos" :key="todo">
+          {{ todo }}
+        </li>
+      </ul>
+    </section>
+  </main>
+</template>
+
+<script>
+export default {
+  name: "Todos",
+  data() {
+    return {
+      inputValue: "",
+      todos: [],
+    };
+  },
+  methods: {
+    addTodo() {
+      this.todos.push(this.inputValue);
+      this.inputValue = "";
+    },
+  },
+};
+</script>
+
+<style>
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+#app {
+  height: 100%;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fefefe;
+  background-image: linear-gradient(#fc6c48 0%, #ef5081 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.todo-wrapper {
+  width: 400px;
+  max-width: 100%;
+  min-height: 500px;
+  margin: 20px auto 40px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 40px 20px;
+  -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+  background-color: #f4f7fc;
+  overflow: hidden;
+  position: relative;
+}
+
+.todo-title {
+  font-size: 1.2em;
+  color: #f65c65;
+  font-weight: normal;
+}
+
+.btn,
+input {
+  line-height: 2em;
+  border-radius: 3px;
+  border: 0;
+  display: inline-block;
+  margin: 15px 0;
+  padding: 0.2em 1em;
+  font-size: 1em;
+}
+
+input[type="text"] {
+  border: 1px solid #ddd;
+  min-width: 70%;
+  transition: all ease-in 0.25s;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #a3b1ff;
+}
+
+.btn {
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.btn-add {
+  background: #6664ff;
+  border-color: #6664ff;
+  pointer-events: visible;
+  color: #fefefe;
+  min-width: 12%;
+  transition: all ease-in 0.25s;
+  font-size: 2.2em;
+  line-height: 0.5em;
+  padding: 0.3em 0.3em;
+  float: right;
+}
+
+ul.todo-list {
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+ul.todo-list li {
+  position: relative;
+  list-style-type: none;
+  display: block;
+  margin: 10px 0;
+  background: #e0e8f5;
+  border-radius: 3px;
+  padding: 12px;
+  overflow: hidden;
+}
+</style>
