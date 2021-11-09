@@ -1,11 +1,12 @@
 import './App.css'
 
-import { Container, Grid } from '@mui/material'
+import { Container } from '@mui/material'
 import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
+import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import React from 'react'
 
@@ -45,15 +46,15 @@ const FRAMEWORKS_DATA = [
 function App() {
   return (
     <Container maxWidth="xl">
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         {FRAMEWORKS_DATA.map(({ image, title, description, link }) => (
-          <Grid item xs={3} key={title}>
-            <Card sx={{ height: '450px' }}>
+          <Grid item key={title}>
+            <Card sx={{ maxWidth: 330 }}>
               <CardMedia
                 component="img"
-                height="200"
+                height="140"
                 image={image}
-                alt="React"
+                alt={title}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
